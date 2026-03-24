@@ -20,3 +20,5 @@ group :development, :test do
 end
 
 gem "mission_control-jobs", "~> 1.1"
+
+gem "faye-websocket", "~> 0.12.0"

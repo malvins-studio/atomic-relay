@@ -1,12 +1,20 @@
 class SendJob < ApplicationJob
   queue_as :default
 
-  def perform(*args)
-    WebSocketHub.send_to(args[device_id], {
+  def perform(*data)
+    data = data.first if data.is_a?(Array)
+
+    data = data.transform_keys(&:to_s)
+
+    puts "[JOB] Sending to #{data['device_id']} | id=#{data['id']}"
+
+    WebsocketHub.send_to(data["device_id"], {
       type: "job",
-      id: args["id"],
-      adapter: args["adapter"],
-      payload: args["payload"]
+      id: data["id"],
+      adapter: data["adapter"],
+      payload: data["payload"]
     })
+
+    puts "[JOB] Dispatched id=#{data['id']}"
   end
 end

@@ -17,10 +17,11 @@ class WebsocketServer
 
         case data["type"]
         when "auth"
-          if data["token"] == ENV["TOKEN_SECRET"]
+          # TODO: replace token auth with HMAC + timestamp
+          if data["token"] == ENV["ATOMIC_AUTH_TOKEN"]
             device_id = data["device_id"]
-            WebSocketHub.register(device_id, ws)
-            puts "Connected: #{device_id}"
+            WebsocketHub.register(device_id, ws)
+            puts "New worker node connected: #{device_id}"
           else
             ws.close
           end
@@ -31,7 +32,7 @@ class WebsocketServer
       end
 
       ws.on :close do
-        WebSocketHub.unregister(device_id) if device_id
+        WebsocketHub.unregister(device_id) if device_id
         puts "Disconnected: #{device_id}"
       end
 

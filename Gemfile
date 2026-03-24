@@ -20,3 +20,5 @@ group :development, :test do
 end
 
 gem "faye-websocket", "~> 0.12.0"
+
+gem "dotenv-rails"

@@ -19,6 +19,4 @@ group :development, :test do
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
 end
 
-gem "mission_control-jobs", "~> 1.1"
-
 gem "faye-websocket", "~> 0.12.0"

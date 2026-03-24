@@ -26,7 +26,7 @@ Atomic Relay is composed of two parts:
 
 ```sh
                 ┌────────────────────┐
-                │   Sinatra Server   │
+                │    Rails Server    │
                 │  + Solid Queue     │
                 │  + WebSocket Hub   │
                 └────────┬───────────┘

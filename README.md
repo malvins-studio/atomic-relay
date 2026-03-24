@@ -24,6 +24,7 @@ It is not a replacement for enterprise-grade providers. It is an alternative for
 
 Atomic Relay is composed of two parts:
 
+```sh
                 ┌────────────────────┐
                 │   Sinatra Server   │
                 │  + Solid Queue     │
@@ -36,6 +37,7 @@ Atomic Relay is composed of two parts:
  │   Android  │   │  Android   │   │   Android  │
  │  (Worker)  │   │  (Worker)  │   │  (Worker)  │
  └────────────┘   └────────────┘   └────────────┘
+```
 
 ### Server
 

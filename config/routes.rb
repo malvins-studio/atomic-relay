@@ -11,4 +11,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  mount MissionControl::Jobs::Engine, at: "admin/jobs"
+
+  post "/enqueue", to: "jobs#create"
 end

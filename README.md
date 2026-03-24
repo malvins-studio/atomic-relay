@@ -24,6 +24,19 @@ It is not a replacement for enterprise-grade providers. It is an alternative for
 
 Atomic Relay is composed of two parts:
 
+                ┌────────────────────┐
+                │   Sinatra Server   │
+                │  + Solid Queue     │
+                │  + WebSocket Hub   │
+                └────────┬───────────┘
+                         │
+        ┌────────────────┼────────────────┐
+        │                │                │
+ ┌────────────┐   ┌────────────┐   ┌────────────┐
+ │   Android  │   │  Android   │   │   Android  │
+ │  (Worker)  │   │  (Worker)  │   │  (Worker)  │
+ └────────────┘   └────────────┘   └────────────┘
+
 ### Server
 
 The server is responsible for:
